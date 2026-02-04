@@ -1,0 +1,55 @@
+@use "sass:color";
+$bcit-blue: #003C71;
+$bcit-yellow: #FFEA2E;
+$bcit-grey: #515151;
+$bcit-fraser: #00ACA0;
+$bcit-seaglass: #49C5B1;
+$bcit-moss: #B5BD00;
+$bcit-pacific: #0072CE;
+$bcit-sky: #00A3E0;
+$bcit-dusk: #7474C1;
+$bcit-driftwood: #AFA9A0;
+$bcit-maroon: #9D2235;
+
+$dark-step: 20%;
+$light-step: 60%;
+$primary-color: $bcit-blue !default;
+$primary-color-light: color.mix(white, $primary-color, $light-step) !default;
+$primary-color-lighter: color.mix(white, $primary-color-light, $light-step) !default;
+$primary-color-lightest: color.mix(white, $primary-color-lighter, $light-step) !default; 
+$primary-color-dark: color.mix(black, $primary-color, $dark-step) !default;
+$primary-color-darker: color.mix(black, $primary-color-dark, $dark-step) !default;
+$primary-color-darkest: color.mix(black, $primary-color-darker, $dark-step) !default;
+
+$secondary-color: $bcit-sky !default;
+$secondary-color-light: color.mix(white, $secondary-color, $light-step) !default;
+$secondary-color-lighter: color.mix(white, $secondary-color-light, $light-step) !default;
+$secondary-color-lightest: color.mix(white, $secondary-color-lighter, $light-step) !default;
+$secondary-color-dark: color.mix(black, $secondary-color, $dark-step) !default;
+$secondary-color-darker: color.mix(black, $secondary-color-dark, $dark-step) !default;
+$secondary-color-darkest: color.mix(black, $secondary-color-darker, $dark-step) !default;
+
+$complement-color: $bcit-seaglass !default;
+$complement-color-light: color.mix(white, $complement-color, $light-step) !default;
+$complement-color-lighter: color.mix(white, $complement-color-light, $light-step) !default;
+$complement-color-lightest: color.mix(white, $complement-color-lighter, $light-step) !default;
+$complement-color-dark: color.mix(black, $complement-color, $dark-step) !default;
+$complement-color-darker: color.mix(black, $complement-color-dark, $dark-step) !default;
+$complement-color-darkest: color.mix(black, $complement-color-darker, $dark-step) !default;
+
+//Grays
+$gray-base: #000 !default;
+$gray-darkest: color.adjust($gray-base, $lightness:  7.5%) !default; // #111
+$gray-darker: color.adjust($gray-base, $lightness:  13.5%) !default; // #222
+$gray-dark: color.adjust($gray-base, $lightness:  20%) !default; // #333 
+$gray: color.adjust($gray-base, $lightness:  33.5%) !default; // #555
+$gray-light: color.adjust($gray-base, $lightness:  46.7%) !default; // #777
+$gray-lighter: color.adjust($gray-base, $lightness:  93.5%) !default; // #eee
+$white: #fff;
+$off-white: #f1f1ee;
+
+// Hyperlink colors
+$global-link-default-color: $secondary-color-dark !default;
+$global-link-visited-color: $primary-color !default;
+$global-link-hover-color: $secondary-color !default;
+$global-link-active-color: $secondary-color !default;

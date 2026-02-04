@@ -1,0 +1,61 @@
+@use "../variables/breakpoints";
+@use "../variables/colors" as *;
+@use "../variables/fonts";
+@use "../variables/sizing";
+
+@use "../mixins/cascading-heading";
+@use "../mixins/inline-media-queries";
+@use "../mixins/love-hate";
+@use "../mixins/remove-top-bottom-margin";
+@use "../mixins/shiny";
+
+@use "../libraries/clearfix";
+@use "../libraries/normalize";
+@use "../libraries/reset";
+@use "../libraries/width_height_";
+
+
+@use "../partials/general/misc";
+@use "../partials/general/page-layout";
+@use "../partials/general/figure";
+@use "../partials/general/references";
+
+@use "../partials/text/hyperlinks";
+@use "../partials/text/blockquote";
+@use "../partials/text/list";
+@use "../partials/text/headings";
+@use "../partials/text/text";
+
+@use "../partials/media/media-icon";
+@use "../partials/media/media";
+@use "../partials/media/side-by-side";
+
+@use "../partials/tables/table";
+
+@use "../partials/containers/base-container";
+@use "../partials/containers/custom-max-width";
+@use "../partials/containers/activity";
+@use "../partials/containers/assessment";
+@use "../partials/containers/note";
+
+@use "../partials/actions/button";
+@use "../partials/actions/accordion";
+@use "../partials/actions/reveal";
+@use "../partials/actions/knowledge-check";
+@use "../partials/actions/swapper";
+@use "../partials/actions/checklist";
+@use "../partials/actions/slider";
+@use "../partials/actions/line-matching";
+@use "../partials/actions/tabs";
+@use "../partials/actions/flashcards";
+
+@use "../partials/util/night-mode";
+@use "../partials/util/swatches";
+@use "../partials/util/print";
+
+.video-activity {
+	@extend .activity;
+	&:before {
+		background-image: url("/assets/icons/temp/play-video.svg");
+	}
+}
