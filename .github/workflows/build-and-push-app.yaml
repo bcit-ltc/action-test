@@ -307,6 +307,9 @@ jobs:
               # Directory of this HTML file relative to site/ (e.g. "multimedia/_SOH/3DBirth")
               rel="${f#site/}"
               rel_dir="$(dirname "$rel")"
+              if [ "${rel_dir}" = "." ]; then
+                rel_dir=""
+              fi
 
               HTML_DIR="$rel_dir" perl -0pi -e '
                 my $cdn  = $ENV{CDN_PREFIX}  // q{};
@@ -335,6 +338,10 @@ jobs:
                       # Relative to this HTML file directory
                       $p = $dir ? "$dir/$p" : $p;
                     }
+
+                    # Normalize any "./" segments and duplicate slashes
+                    $p =~ s{(?:^|/)\./}{/}g;
+                    $p =~ s{/+}{/}g;
 
                     print STDERR "[CDN-REWRITE] $path -> $cdn/$p\n";
 
@@ -410,6 +417,8 @@ jobs:
                   } else {
                     $p = $dir ? "$dir/$p" : $p;
                   }
+                  $p =~ s{(?:^|/)\./}{/}g;
+                  $p =~ s{/+}{/}g;
                   return "$cdn/$p";
                 };
 
@@ -490,11 +499,15 @@ jobs:
                   return $path if $is_abs->($path);
                   my $p = $path;
                   $p =~ s{^\./}{};
+                  my $explicit_rel = ($path =~ m{^\./|^\.\./});
                   if ($p =~ m{^/}) {
                     $p =~ s{^/}{};
-                  } else {
+                  } elsif ($explicit_rel) {
+                    $p =~ s{^\./}{};
                     $p = $dir ? "$dir/$p" : $p;
                   }
+                  $p =~ s{(?:^|/)\./}{/}g;
+                  $p =~ s{/+}{/}g;
                   return "$cdn/$p";
                 };
 
